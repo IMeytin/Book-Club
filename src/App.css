@@ -92,4 +92,42 @@ ul {
 }
 
 /* Books component */
+.book-section-header{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.book-section-header h2 {
+  margin: 15px;
+}
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  width: 100%;
+}
 
+.search-input {
+  background-color: #FAEBD7;
+  color: #483C32;
+  font-family: 'Roboto', sans-serif;
+  max-width: 670px;
+  width: 100%;
+  height: 45px;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 15px 0px 0px 15px;
+  border: 2px solid #6B4226;
+
+}
+.btn {
+  width: 50px;
+  background-color: #FAEBD7;
+  border: 2px solid #6B4226;
+  border-left-width: 0;
+  border-radius: 0px 15px 15px 0px;
+}
+.material-icons-outlined { 
+  color: #6B4226; 
+  transform: rotate(90deg);
+}
