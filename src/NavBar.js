@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import logo from './Style-Images/BookClubLOGO.png'
+import { useContext } from "react";
+import LikedBooksContext from "./LikedBooksContext";
 
 function NavBar() {
+    const {likedBooks} = useContext(LikedBooksContext);
+
     return ( 
         <header>
             <nav>
@@ -16,7 +20,7 @@ function NavBar() {
                         <Link className="link" to="/Books">Books</Link>
                     </li>
                     <li>
-                        <Link className="link" to="/ReadingList">Reading List</Link>
+                        <Link className="link" to="/ReadingList">Reading List {likedBooks.length > 0 && `(${likedBooks.length})`}</Link>
                     </li>
                 </ul>
             </nav>
