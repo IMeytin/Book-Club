@@ -9,23 +9,29 @@ import HomePage from './HomePage';
 import Books from './Books';
 import ReadingList from './ReadingList';
 import LikedBooksContext from './LikedBooksContext';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
-  const [likedBooks, setLikedBooks] = useState([]);
+  const savedLikedBooks = JSON.parse(localStorage.getItem('likedBooks'))
+  const [likedBooks, setLikedBooks] = useState(savedLikedBooks || []);
+  console.log(likedBooks)
+
+  useEffect(()=> {
+    localStorage.setItem('likedBooks', JSON.stringify(likedBooks))
+  }, [likedBooks])
 
   return (
-    <Router>
-      <NavBar />
-
-      <LikedBooksContext.Provider value={{likedBooks, setLikedBooks}}>
-        <Routes>
-          <Route path='/' element={ <HomePage /> }></Route>
-          <Route path='/Books' element={ <Books /> }></Route>
-          <Route path='/ReadingList' element={ <ReadingList /> }></Route>
-        </Routes>
-      </LikedBooksContext.Provider>
-    </Router>
+    <LikedBooksContext.Provider value={{likedBooks, setLikedBooks}}>
+      <Router>
+        <NavBar />
+    
+          <Routes>
+            <Route path='/' element={ <HomePage /> }></Route>
+            <Route path='/Books' element={ <Books /> }></Route>
+            <Route path='/ReadingList' element={ <ReadingList /> }></Route>
+          </Routes>
+      </Router>
+    </LikedBooksContext.Provider>
   );
 }
 

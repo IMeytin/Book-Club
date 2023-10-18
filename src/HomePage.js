@@ -33,7 +33,7 @@ function HomePage() {
                     <div className="book-card">
                         <h2 className='subHeading'>#2</h2>
                         <img className='bestSellerImg' src={BestSeller2} alt="BestSeller-2" />
-                        <h4 className='book-heading'>Atomic Habits</h4>
+                        <h4>Atomic Habits</h4>
                         <p className='text'>James Clear</p>
                     </div>
 
@@ -53,7 +53,7 @@ function HomePage() {
 
                     <div className="book-card">
                         <h2 className='subHeading'>#5</h2>
-                        <img src={BestSeller5} alt="BestSeller-4" />
+                        <img className='bestSellerImg' src={BestSeller5} alt="BestSeller-4" />
                         <h4>It Ends with Us</h4>
                         <p className='text'>Collen Hoover</p>
                     </div>

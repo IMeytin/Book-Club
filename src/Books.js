@@ -1,15 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import Swal from 'sweetalert2';
 import bookImg from "./Style-Images/BookImg.png"
-import BookList from "./BookList";
+import BookCard from "./BookCard";
 import LikedBooksContext from "./LikedBooksContext";
+import Loader from "./Loader/Loader";
 
 function Books() {
     const endpoint = "https://www.googleapis.com/books/v1/volumes?"
     const myKey = "AIzaSyBJHWDINLbrCYiVnCiRUXB8KJYIzoOferA"
     const maxResults = 15;
+    const [stateLoader, setStateLoader] = useState(false)
 
-    const { setLikedBooks } = useContext(LikedBooksContext)
+    const { likedBooks, setLikedBooks } = useContext(LikedBooksContext)
 
     const onLikeChange = (bookDetails, isLiked) => {
         if (isLiked) {
@@ -28,6 +30,7 @@ function Books() {
     useEffect (() => {
         if (!searchValue) return;
         const getBooks = async () => {
+            setStateLoader(true)
             try{
                 const response = await fetch (`${endpoint}q=${searchValue}&printType=books&key=${myKey}&maxResults=${maxResults}`);
 
@@ -47,12 +50,13 @@ function Books() {
                         )
                     )
                 )
-
+                setStateLoader(false)
                 setBooksArray(uniqueBooks)
                 console.log(data.items)
 
             }
             catch (error){
+                setStateLoader(false)
                 Swal.fire({
                     title: 'Error!',
                     text: error.message,
@@ -67,10 +71,6 @@ function Books() {
         getBooks();
     },[searchValue])
 
-    const searchInfo = (e) => {
-        setInputInfo(e.target.value)
-    }
-
     const finalSearch = (e) => {
         e.preventDefault();
         setSearchValue(inputInfo);
@@ -78,6 +78,7 @@ function Books() {
 
     return ( 
         <main>
+            {stateLoader && <Loader />}
             <div className="book-section-header">
                 <img src={bookImg} alt="book" width={100}/>
                 <h2 className="header">Find Your Next Literary Adventure</h2>
@@ -85,8 +86,8 @@ function Books() {
             </div>
 
             <form onSubmit={finalSearch}>
-                <input value={inputInfo} onChange={searchInfo} className="search-input" type="text" />
-                <button className="btn"><span className="material-icons-outlined">search</span></button>
+                <input value={inputInfo} onChange={(e) => setInputInfo(e.target.value)} className="search-input" type="text" />
+                <button className="input-btn"><span className="material-icons-outlined">search</span></button>
             </form>
 
             <section className="bookList-section">
@@ -95,14 +96,15 @@ function Books() {
                     const {title, authors, imageLinks, canonicalVolumeLink} = volumeInfo;
                     const bookCover = imageLinks?.thumbnail;
                     return (
-                        <BookList 
+                        <BookCard
                         key = {id}
                         id = {id}
                         bookCover = {bookCover}
                         title = {title}
                         authors = {authors && authors.join(", ")}
                         link = {canonicalVolumeLink}
-                        onLikeChange = {onLikeChange}/>
+                        onLikeChange = {onLikeChange}
+                        likedBooks = {likedBooks}/>
                     )
                 })}
             </section>
