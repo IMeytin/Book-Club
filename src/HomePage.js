@@ -25,28 +25,28 @@ function HomePage() {
                 <div className="bestSeller-container">
                     <div className="book-card">
                         <h2 className='subHeading'>#1</h2>
-                        <img src={BestSeller1} alt="BestSeller-1" />
+                        <img className='bestSellerImg' src={BestSeller1} alt="BestSeller-1" />
                         <h4 className='book-heading'>Spare</h4>
                         <p className='text'>Prince Harry <br />The Duke of Sussex</p>
                     </div>
 
                     <div className="book-card">
                         <h2 className='subHeading'>#2</h2>
-                        <img src={BestSeller2} alt="BestSeller-2" />
+                        <img className='bestSellerImg' src={BestSeller2} alt="BestSeller-2" />
                         <h4 className='book-heading'>Atomic Habits</h4>
                         <p className='text'>James Clear</p>
                     </div>
 
                     <div className="book-card">
                         <h2 className='subHeading'>#3</h2>
-                        <img src={BestSeller3} alt="BestSeller-3" />
+                        <img className='bestSellerImg' src={BestSeller3} alt="BestSeller-3" />
                         <h4>Lessons in Chemistry</h4>
                         <p className='text'>Bonnie Garmus</p>
                     </div>
 
                     <div className="book-card">
                         <h2 className='subHeading'>#4</h2>
-                        <img src={BestSeller4} alt="BestSeller-4" />
+                        <img className='bestSellerImg' src={BestSeller4} alt="BestSeller-4" />
                         <h4>It Starts with Us</h4>
                         <p className='text'>Collen Hoover</p>
                     </div>

@@ -1,7 +1,17 @@
+import { useContext } from "react";
+import LikedBooksContext from "./LikedBooksContext";
+
 function ReadingList() {
+    const {likedBooks} = useContext(LikedBooksContext);
+
     return ( 
         <div>
-            <h1>Reading List component</h1>
+            {/* {likedBooks.map(book => {
+                const {id, bookCover, title, authors, link} = book;
+                return (
+                    
+                )
+            })} */}
         </div>
      );
 }
