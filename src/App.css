@@ -11,7 +11,7 @@
 body {
   background-color: var(--main-background-color);
   margin: 0;
-  padding: 120px 75px 0px 75px;
+  padding: 120px 75px;
 }
 
 .text, .search-input, .authors-list {
@@ -38,8 +38,11 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
+nav img {
+  height: 90px;
+}
 
-.link{
+.link {
   text-decoration: none;
   font-size: 23px;
 }
@@ -107,14 +110,13 @@ ul {
   justify-content: center;
   align-items: flex-end;
 }
-.book-section-header h2 {
+.book-section-header {
   margin: 15px;
 }
 form {
   display: flex;
   justify-content: center;
   margin-top: 50px;
-  width: 100%;
 }
 
 .search-input {
@@ -185,3 +187,110 @@ form {
   border: none;
   padding: 0;
 }
+
+.NoReadingListImg {
+  width: 600px;
+}
+
+@media all and (max-width: 800px){
+  body {
+    padding: 70px 40px;
+  }
+  nav {
+    height: 60px;
+    padding: 0px 40px;
+  }
+  nav img {
+    height: 60px;
+  }
+  .link {
+    font-size: 20px;
+  }
+
+  /* Home page */
+  .introductionImg {
+    width: 350px;
+  }
+  .header, .subHeading {
+    font-size: 22px;
+  }
+  .text {
+    font-size: 16px;
+  }
+  .bestSeller-container {
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .book-card {
+    max-width: 150px;
+    margin: 5px 25px;
+  }
+  .book-card h4 {
+    font-size: 18px;
+  }
+  .bestSellerImg {
+    width: 130px;
+  }
+  /* Books component */
+  .book-section-header img {
+    width: 80px;
+  }
+  .book-section-header h2 {
+    margin-top: 80px;
+  }
+  .search-input {
+    max-width: 550px;
+  }
+  .book-card--list {
+    max-width: 230px;
+    margin-top: 50px;
+  }
+  .NoReadingListImg {
+    width: 500px;
+  }
+}
+@media all and (max-width: 500px) {
+  body {
+    padding: 110px 30px;
+  }
+  /* navBar */
+  nav {
+    height: 100px;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+  .nav-links li:not(:last-child){
+    margin-right: 0px;
+  }
+  .link {
+    font-size: 19px;
+  }
+  /* home page */
+  .introduction-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .introduction {
+    width: 100%;
+  }
+  .NoReadingListImg {
+    margin-top: 100px;
+    width: 300px;
+  }
+  .header, .subHeading {
+    font-size: 21px;
+  }
+  /* Book Page */
+  .book-section-header h2 {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .book-section-header img {
+    width: 100px;
+  }
+}
+
+

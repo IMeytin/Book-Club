@@ -38,7 +38,7 @@ function ReadingList() {
                     })
                 ): (
                     <div>
-                        <img src={NoBooks} alt="" width={600} />
+                        <img className="NoReadingListImg" src={NoBooks} alt="You haven't added any books to your reading list yet!"/>
                     </div>
                 )}
             </section>

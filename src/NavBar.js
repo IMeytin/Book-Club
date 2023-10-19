@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from './Style-Images/BookClubLOGO.png'
-import { useContext } from "react";
+import { useContext} from "react";
 import LikedBooksContext from "./LikedBooksContext";
 
 function NavBar() {
@@ -10,7 +10,7 @@ function NavBar() {
         <header>
             <nav>
                 <div>
-                    <img src={logo} alt="logo" height="90px" />
+                    <img src={logo} alt="logo"/>
                 </div>
                 <ul className="nav-links">
                     <li>
